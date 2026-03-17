@@ -1,0 +1,444 @@
+---
+import Base from '../layouts/Base.astro';
+
+const features = [
+  {
+    icon: '⬡',
+    title: 'B2C + B2B in one codebase',
+    description:
+      'Consumer and business storefronts share the same routes and components. B2B layer activates automatically when a company buyer logs in.',
+  },
+  {
+    icon: '◻',
+    title: '57 shadcn/ui components',
+    description:
+      'Every Radix UI primitive, styled with Tailwind CSS v4 and ready to customise. Accessible, keyboard-navigable, dark-mode ready.',
+  },
+  {
+    icon: '◈',
+    title: '17 locales + RTL',
+    description:
+      'Full internationalisation with type-safe translation files. Arabic RTL support out of the box via logical CSS properties and Radix DirectionProvider.',
+  },
+  {
+    icon: '↻',
+    title: 'Subscriptions & bundles',
+    description:
+      'Native Shopify selling plans and bundle products supported. Subscription management, plan selector, and bundled-variant UI all included.',
+  },
+  {
+    icon: '◎',
+    title: 'Cart drawer + cross-sell',
+    description:
+      'Off-canvas cart drawer with discount codes, gift cards, shipping progress, trust badges, and automatic cross-sell recommendations.',
+  },
+  {
+    icon: '◉',
+    title: 'SEO, analytics, sitemap',
+    description:
+      'Storefront API SEO fields, canonical URLs, paginated sitemaps, robots.txt, and Shopify Analytics events on every route.',
+  },
+];
+
+const metrics = [
+  { value: '98', label: 'Lighthouse score', unit: '' },
+  { value: '1.2', label: 'Largest Contentful Paint', unit: 's' },
+  { value: '0.00', label: 'Cumulative Layout Shift', unit: '' },
+  { value: '140', label: 'Time to First Byte', unit: 'ms' },
+];
+
+const components = [
+  'Accordion', 'Alert Dialog', 'Avatar', 'Badge', 'Breadcrumb',
+  'Button', 'Button Group', 'Calendar', 'Card', 'Carousel',
+  'Chart', 'Checkbox', 'Collapsible', 'Combobox', 'Command',
+  'Context Menu', 'Dialog', 'Drawer', 'Dropdown Menu', 'Empty State',
+  'Field', 'Form', 'Hover Card', 'Input', 'Input Group',
+  'Input OTP', 'Item', 'Kbd', 'Label', 'Lightbox',
+  'Menubar', 'Navigation Menu', 'Native Select', 'Pagination', 'Popover',
+  'Progress', 'Radio Group', 'Resizable', 'Scroll Area', 'Select',
+  'Separator', 'Sheet', 'Skeleton', 'Slider', 'Sonner',
+  'Spinner', 'Switch', 'Table', 'Tabs', 'Textarea',
+  'Toggle', 'Toggle Group', 'Tooltip',
+];
+
+const tiers = [
+  {
+    name: 'Starter',
+    price: '199',
+    description: 'For a single Shopify storefront.',
+    stores: '1 store',
+    highlight: false,
+    cta: 'Buy Starter',
+    features: [
+      '1 production store',
+      'Full source code',
+      'All features included',
+      '30 days email support',
+      '12 months updates',
+    ],
+  },
+  {
+    name: 'Pro',
+    price: '449',
+    description: 'For studios managing multiple clients.',
+    stores: 'Up to 5 stores',
+    highlight: true,
+    cta: 'Buy Pro',
+    features: [
+      'Up to 5 production stores',
+      'Full source code',
+      'All features included',
+      '30 days email support',
+      '12 months updates',
+    ],
+  },
+  {
+    name: 'Agency',
+    price: '1,499',
+    description: 'Unlimited use across all client projects.',
+    stores: 'Unlimited stores',
+    highlight: false,
+    cta: 'Buy Agency',
+    features: [
+      'Unlimited production stores',
+      'Full source code',
+      'All features included',
+      '30 days email support',
+      '12 months updates',
+    ],
+  },
+];
+
+const faqs = [
+  {
+    q: 'What version of Shopify Hydrogen is included?',
+    a: 'CommerceForge is built on Hydrogen 2026.1 with React Router v7. It follows the official Shopify Hydrogen architecture and is compatible with Shopify Oxygen deployment.',
+  },
+  {
+    q: 'Do I need Shopify Plus for B2B?',
+    a: 'Yes. The B2B features (company locations, buyer pricing, quantity rules, volume tiers) require a Shopify Plus plan. All B2C features work on any Shopify plan.',
+  },
+  {
+    q: 'Can I use it for client stores?',
+    a: 'Yes. The Pro license covers up to 5 stores and the Agency license covers unlimited stores, including stores built and managed for clients.',
+  },
+  {
+    q: 'What is included in the 12 months of updates?',
+    a: 'All improvements, bug fixes, and new features released within 12 months of your purchase date. Updates are delivered as a new version of the codebase.',
+  },
+  {
+    q: 'Can I customise the code?',
+    a: 'Yes. You receive the full source code and can modify anything. The only restriction is redistribution — you may not resell or publish the starter itself.',
+  },
+  {
+    q: 'What payment methods are accepted?',
+    a: 'All major credit cards and PayPal via Lemon Squeezy. VAT is handled automatically for EU purchases.',
+  },
+];
+---
+
+<Base>
+  <!-- ─── NAV ─────────────────────────────────────────────────────── -->
+  <header class="sticky top-0 z-50 border-b border-zinc-800 bg-zinc-950/80 backdrop-blur-md">
+    <nav class="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
+      <a href="/" class="font-semibold tracking-tight text-zinc-50">
+        CommerceForge
+      </a>
+      <div class="flex items-center gap-6 text-sm">
+        <a href="#features" class="text-zinc-400 transition hover:text-zinc-50">Features</a>
+        <a href="#pricing" class="text-zinc-400 transition hover:text-zinc-50">Pricing</a>
+        <a href="#faq" class="text-zinc-400 transition hover:text-zinc-50">FAQ</a>
+        <a
+          href="#pricing"
+          class="rounded-md bg-indigo-600 px-4 py-2 font-medium text-white transition hover:bg-indigo-500"
+        >
+          Get started
+        </a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <!-- ─── HERO ──────────────────────────────────────────────────── -->
+    <section class="relative overflow-hidden px-6 pb-24 pt-24 text-center">
+      <!-- background grid -->
+      <div
+        class="pointer-events-none absolute inset-0 bg-[linear-gradient(to_right,#27272a_1px,transparent_1px),linear-gradient(to_bottom,#27272a_1px,transparent_1px)] bg-[size:48px_48px] opacity-30"
+      ></div>
+      <!-- radial fade -->
+      <div
+        class="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_80%_50%_at_50%_0%,rgba(99,102,241,0.15),transparent)]"
+      ></div>
+
+      <div class="relative mx-auto max-w-4xl">
+        <div
+          class="mb-6 inline-flex items-center gap-2 rounded-full border border-zinc-700 bg-zinc-900 px-4 py-1.5 text-sm text-zinc-400"
+        >
+          <span class="h-1.5 w-1.5 rounded-full bg-indigo-400"></span>
+          Shopify Hydrogen 2026.1 · React Router v7
+        </div>
+
+        <h1 class="mb-6 text-5xl font-bold leading-tight tracking-tight text-zinc-50 md:text-6xl">
+          The Hydrogen starter<br />
+          <span class="text-indigo-400">agencies actually ship with.</span>
+        </h1>
+
+        <p class="mx-auto mb-10 max-w-2xl text-lg leading-relaxed text-zinc-400">
+          B2C + B2B · 57 shadcn/ui components · 17 locales · subscriptions · bundles · infinite scroll.
+          One codebase. Deploy to Oxygen in minutes.
+        </p>
+
+        <div class="flex flex-col items-center justify-center gap-4 sm:flex-row">
+          <a
+            href="#pricing"
+            class="rounded-md bg-indigo-600 px-8 py-3 text-base font-semibold text-white shadow-lg transition hover:bg-indigo-500"
+          >
+            Get CommerceForge — from 199 €
+          </a>
+          <a
+            href="https://github.com/shop3srl/commerceforge"
+            class="rounded-md border border-zinc-700 px-8 py-3 text-base font-medium text-zinc-300 transition hover:border-zinc-500 hover:text-zinc-50"
+          >
+            Read the docs →
+          </a>
+        </div>
+
+        <!-- file tree preview -->
+        <div
+          class="mx-auto mt-16 max-w-lg overflow-hidden rounded-xl border border-zinc-800 bg-zinc-900 text-left shadow-2xl"
+        >
+          <div class="flex items-center gap-2 border-b border-zinc-800 px-4 py-3">
+            <span class="h-3 w-3 rounded-full bg-red-500/70"></span>
+            <span class="h-3 w-3 rounded-full bg-yellow-500/70"></span>
+            <span class="h-3 w-3 rounded-full bg-green-500/70"></span>
+            <span class="ml-2 font-mono text-xs text-zinc-500">commerceforge/</span>
+          </div>
+          <pre class="px-6 py-5 font-mono text-sm leading-7 text-zinc-400"><code><span class="text-zinc-500">├──</span> app/
+<span class="text-zinc-500">│   ├──</span> <span class="text-indigo-400">components/</span>
+<span class="text-zinc-500">│   │   ├──</span> <span class="text-zinc-300">ui/</span>          <span class="text-zinc-600"># 57 shadcn/ui components</span>
+<span class="text-zinc-500">│   │   ├──</span> Header.tsx
+<span class="text-zinc-500">│   │   ├──</span> ProductMain.tsx
+<span class="text-zinc-500">│   │   └──</span> CartMain.tsx
+<span class="text-zinc-500">│   ├──</span> <span class="text-indigo-400">routes/</span>          <span class="text-zinc-600"># 32 routes</span>
+<span class="text-zinc-500">│   ├──</span> <span class="text-indigo-400">locales/</span>         <span class="text-zinc-600"># 17 languages</span>
+<span class="text-zinc-500">│   └──</span> lib/
+<span class="text-zinc-500">├──</span> <span class="text-indigo-400">guides/</span>              <span class="text-zinc-600"># documentation</span>
+<span class="text-zinc-500">└──</span> .env.example</code></pre>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── FEATURES ─────────────────────────────────────────────── -->
+    <section id="features" class="px-6 py-24">
+      <div class="mx-auto max-w-6xl">
+        <div class="mb-16 text-center">
+          <h2 class="mb-4 text-3xl font-bold tracking-tight text-zinc-50 md:text-4xl">
+            Everything you need to ship fast.
+          </h2>
+          <p class="mx-auto max-w-xl text-zinc-400">
+            Every feature a real Shopify storefront needs — already built, already tested.
+          </p>
+        </div>
+
+        <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {
+            features.map((f) => (
+              <div class="rounded-xl border border-zinc-800 bg-zinc-900 p-6 transition hover:border-zinc-600">
+                <div class="mb-4 text-2xl text-indigo-400">{f.icon}</div>
+                <h3 class="mb-2 font-semibold text-zinc-50">{f.title}</h3>
+                <p class="text-sm leading-relaxed text-zinc-400">{f.description}</p>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── PERFORMANCE ──────────────────────────────────────────── -->
+    <section class="border-y border-zinc-800 bg-zinc-900 px-6 py-24">
+      <div class="mx-auto max-w-6xl">
+        <div class="mb-16 text-center">
+          <h2 class="mb-4 text-3xl font-bold tracking-tight text-zinc-50 md:text-4xl">
+            Performance out of the box.
+          </h2>
+          <p class="mx-auto max-w-xl text-zinc-400">
+            Built on Shopify Oxygen and Cloudflare Workers. Edge rendering, aggressive caching, and
+            optimised asset delivery — no configuration needed.
+          </p>
+        </div>
+
+        <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+          {
+            metrics.map((m) => (
+              <div class="text-center">
+                <div class="mb-2 font-mono text-5xl font-bold text-indigo-400">
+                  {m.value}
+                  <span class="text-2xl text-indigo-300">{m.unit}</span>
+                </div>
+                <div class="text-sm text-zinc-400">{m.label}</div>
+              </div>
+            ))
+          }
+        </div>
+
+        <p class="mt-12 text-center text-xs text-zinc-600">
+          Measured on a production Oxygen deployment. Results may vary depending on store content and
+          configuration.
+        </p>
+      </div>
+    </section>
+
+    <!-- ─── COMPONENTS ───────────────────────────────────────────── -->
+    <section class="px-6 py-24">
+      <div class="mx-auto max-w-6xl">
+        <div class="mb-16 text-center">
+          <h2 class="mb-4 text-3xl font-bold tracking-tight text-zinc-50 md:text-4xl">
+            57 components, ready to use.
+          </h2>
+          <p class="mx-auto max-w-xl text-zinc-400">
+            Every shadcn/ui component plus custom ecommerce primitives. Accessible, keyboard-navigable,
+            dark mode included.
+          </p>
+        </div>
+
+        <div class="flex flex-wrap justify-center gap-2">
+          {
+            components.map((c) => (
+              <span class="rounded-md border border-zinc-800 bg-zinc-900 px-3 py-1.5 font-mono text-xs text-zinc-400">
+                {c}
+              </span>
+            ))
+          }
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── PRICING ──────────────────────────────────────────────── -->
+    <section id="pricing" class="border-t border-zinc-800 px-6 py-24">
+      <div class="mx-auto max-w-6xl">
+        <div class="mb-16 text-center">
+          <h2 class="mb-4 text-3xl font-bold tracking-tight text-zinc-50 md:text-4xl">
+            Simple, transparent pricing.
+          </h2>
+          <p class="mx-auto max-w-xl text-zinc-400">
+            One-time payment. Full source code. All future updates included for 12 months.
+          </p>
+        </div>
+
+        <div class="grid gap-8 lg:grid-cols-3">
+          {
+            tiers.map((tier) => (
+              <div
+                class={`relative flex flex-col rounded-xl border p-8 ${
+                  tier.highlight
+                    ? 'border-indigo-500 bg-indigo-950/40 shadow-[0_0_60px_-10px_rgba(99,102,241,0.3)]'
+                    : 'border-zinc-800 bg-zinc-900'
+                }`}
+              >
+                {tier.highlight && (
+                  <div class="absolute -top-3.5 left-1/2 -translate-x-1/2 rounded-full bg-indigo-600 px-4 py-1 text-xs font-semibold text-white">
+                    Most popular
+                  </div>
+                )}
+
+                <div class="mb-6">
+                  <h3 class="mb-1 text-lg font-semibold text-zinc-50">{tier.name}</h3>
+                  <p class="text-sm text-zinc-400">{tier.description}</p>
+                </div>
+
+                <div class="mb-6">
+                  <span class="text-4xl font-bold text-zinc-50">{tier.price} €</span>
+                  <span class="ml-2 text-sm text-zinc-500">one-time</span>
+                </div>
+
+                <ul class="mb-8 flex-1 space-y-3">
+                  {tier.features.map((f) => (
+                    <li class="flex items-center gap-3 text-sm text-zinc-300">
+                      <span class="text-indigo-400">✓</span>
+                      {f}
+                    </li>
+                  ))}
+                </ul>
+
+                <a
+                  href="#"
+                  class={`block rounded-md py-3 text-center text-sm font-semibold transition ${
+                    tier.highlight
+                      ? 'bg-indigo-600 text-white hover:bg-indigo-500'
+                      : 'border border-zinc-700 text-zinc-300 hover:border-zinc-500 hover:text-zinc-50'
+                  }`}
+                >
+                  {tier.cta}
+                </a>
+              </div>
+            ))
+          }
+        </div>
+
+        <p class="mt-8 text-center text-sm text-zinc-500">
+          All prices exclude VAT. VAT applied automatically for EU purchases. No refunds on digital
+          products.
+        </p>
+      </div>
+    </section>
+
+    <!-- ─── FAQ ──────────────────────────────────────────────────── -->
+    <section id="faq" class="border-t border-zinc-800 px-6 py-24">
+      <div class="mx-auto max-w-3xl">
+        <div class="mb-16 text-center">
+          <h2 class="mb-4 text-3xl font-bold tracking-tight text-zinc-50 md:text-4xl">
+            Frequently asked questions.
+          </h2>
+        </div>
+
+        <div class="divide-y divide-zinc-800">
+          {
+            faqs.map((faq) => (
+              <div class="py-6">
+                <h3 class="mb-3 font-medium text-zinc-50">{faq.q}</h3>
+                <p class="text-sm leading-relaxed text-zinc-400">{faq.a}</p>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── CTA BOTTOM ───────────────────────────────────────────── -->
+    <section class="border-t border-zinc-800 px-6 py-24 text-center">
+      <div class="mx-auto max-w-2xl">
+        <h2 class="mb-4 text-3xl font-bold tracking-tight text-zinc-50 md:text-4xl">
+          Ready to ship your next Shopify store?
+        </h2>
+        <p class="mb-10 text-zinc-400">
+          Skip weeks of boilerplate. Start with a production-ready codebase.
+        </p>
+        <a
+          href="#pricing"
+          class="inline-block rounded-md bg-indigo-600 px-10 py-4 text-base font-semibold text-white shadow-lg transition hover:bg-indigo-500"
+        >
+          Get CommerceForge — from 199 €
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <!-- ─── FOOTER ───────────────────────────────────────────────── -->
+  <footer class="border-t border-zinc-800 px-6 py-10">
+    <div class="mx-auto flex max-w-6xl flex-col items-center justify-between gap-6 sm:flex-row">
+      <div>
+        <p class="font-semibold text-zinc-50">CommerceForge</p>
+        <p class="mt-1 text-sm text-zinc-500">
+          © 2026 SHOP3 S.R.L. All rights reserved.
+        </p>
+      </div>
+      <div class="flex items-center gap-6 text-sm text-zinc-500">
+        <a href="/terms" class="transition hover:text-zinc-300">Terms</a>
+        <a href="/privacy" class="transition hover:text-zinc-300">Privacy</a>
+        <a href="mailto:support@commerceforge.dev" class="transition hover:text-zinc-300"
+          >Support</a
+        >
+      </div>
+    </div>
+  </footer>
+</Base>

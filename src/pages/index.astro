@@ -69,6 +69,7 @@ const tiers = [
     stores: '1 store',
     highlight: false,
     cta: 'Buy Starter',
+    url: 'https://commerceforge.lemonsqueezy.com/checkout/buy/7329762b-2769-4dcf-8a78-d01e251b3471',
     features: [
       '1 production store',
       'Full source code',
@@ -84,6 +85,7 @@ const tiers = [
     stores: 'Up to 5 stores',
     highlight: true,
     cta: 'Buy Pro',
+    url: 'https://commerceforge.lemonsqueezy.com/checkout/buy/2406800a-091e-45e8-b51f-658f14d87c41',
     features: [
       'Up to 5 production stores',
       'Full source code',
@@ -99,6 +101,7 @@ const tiers = [
     stores: 'Unlimited stores',
     highlight: false,
     cta: 'Buy Agency',
+    url: 'https://commerceforge.lemonsqueezy.com/checkout/buy/67c9e5cc-5e13-4e5f-aa78-06136a319b68',
     features: [
       'Unlimited production stores',
       'Full source code',
@@ -361,7 +364,7 @@ const faqs = [
                 </ul>
 
                 <a
-                  href="#"
+                  href={tier.url}
                   class={`block rounded-md py-3 text-center text-sm font-semibold transition ${
                     tier.highlight
                       ? 'bg-indigo-600 text-white hover:bg-indigo-500'

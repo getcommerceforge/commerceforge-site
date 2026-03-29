@@ -1,0 +1,642 @@
+---
+import Base from '../layouts/Base.astro';
+
+const features = [
+  {
+    icon: '⬡',
+    title: 'B2C + B2B in one codebase',
+    description:
+      'Consumer and business storefronts share the same routes and components. Company buyers get location-aware pricing, quantity rules, price breaks, and quote flows automatically.',
+  },
+  {
+    icon: '◻',
+    title: '57 shadcn/ui components',
+    description:
+      'A large Radix-powered UI foundation styled with Tailwind CSS v4, plus custom ecommerce primitives for product cards, drawers, fields, ratings, lightbox, and directional UI.',
+  },
+  {
+    icon: '◈',
+    title: '27 locales + RTL',
+    description:
+      'Full internationalisation with type-safe translation files, market-aware routing, localized account/catalog/search flows, and RTL-ready layout primitives for Arabic storefronts.',
+  },
+  {
+    icon: '↻',
+    title: 'Subscriptions, bundles, combined listings',
+    description:
+      'Native Shopify selling plans, bundle products, bundled-variant selectors, combined listings support, and shared PDP logic already wired into the storefront.',
+  },
+  {
+    icon: '◎',
+    title: 'Cart drawer + checkout UX',
+    description:
+      'Off-canvas cart drawer with discount codes, gift cards, shipping progress, trust badges, notes, PO fields, delivery date fields, and automatic cross-sell recommendations.',
+  },
+  {
+    icon: '◉',
+    title: 'Customer account area',
+    description:
+      'Login, logout, addresses, profile editing, order history, order detail, subscriptions, and order search are already built on Shopify Customer Account API.',
+  },
+  {
+    icon: '⌕',
+    title: 'Predictive search + full search',
+    description:
+      'Live predictive search with shadcn Command palette, full-page search across products/pages/articles, and analytics-ready search events and query handling.',
+  },
+  {
+    icon: '▣',
+    title: 'Quick view + product recommendations',
+    description:
+      'Quick view shares real PDP interactions for variants and pricing, while product page, cart, and recommendation surfaces are already connected for merchandising.',
+  },
+  {
+    icon: '◌',
+    title: 'SEO, analytics, release-ready',
+    description:
+      'Storefront API SEO fields, canonical URLs, structured data, paginated sitemaps, robots.txt, Shopify analytics events, and a release packaging flow ready for delivery.',
+  },
+];
+
+const metrics = [
+  { value: '97', label: 'Cart desktop score', unit: '' },
+  { value: '99', label: 'Cart mobile score', unit: '' },
+  { value: '91+', label: 'PDP desktop score', unit: '' },
+  { value: '92+', label: 'Collection desktop score', unit: '' },
+];
+
+const components = [
+  'Accordion', 'Alert Dialog', 'Avatar', 'Badge', 'Breadcrumb',
+  'Button', 'Button Group', 'Calendar', 'Card', 'Carousel',
+  'Chart', 'Checkbox', 'Collapsible', 'Combobox', 'Command',
+  'Context Menu', 'Dialog', 'Drawer', 'Dropdown Menu', 'Empty State',
+  'Field', 'Form', 'Hover Card', 'Input', 'Input Group',
+  'Input OTP', 'Item', 'Kbd', 'Label', 'Lightbox',
+  'Menubar', 'Navigation Menu', 'Native Select', 'Pagination', 'Popover',
+  'Progress', 'Radio Group', 'Resizable', 'Scroll Area', 'Select',
+  'Separator', 'Sheet', 'Skeleton', 'Slider', 'Sonner',
+  'Spinner', 'Switch', 'Table', 'Tabs', 'Textarea',
+  'Toggle', 'Toggle Group', 'Tooltip',
+];
+
+const tiers = [
+  {
+    name: 'Starter',
+    price: '199',
+    description: 'For a single Shopify storefront.',
+    stores: '1 store',
+    highlight: false,
+    cta: 'Buy Starter',
+    url: 'https://commerceforge.lemonsqueezy.com/checkout/buy/7329762b-2769-4dcf-8a78-d01e251b3471',
+    features: [
+      '1 production store',
+      'Full source code',
+      'All features included',
+      '30 days email support',
+      '12 months updates',
+    ],
+  },
+  {
+    name: 'Pro',
+    price: '449',
+    description: 'For studios managing multiple clients.',
+    stores: 'Up to 5 stores',
+    highlight: true,
+    cta: 'Buy Pro',
+    url: 'https://commerceforge.lemonsqueezy.com/checkout/buy/2406800a-091e-45e8-b51f-658f14d87c41',
+    features: [
+      'Up to 5 production stores',
+      'Full source code',
+      'All features included',
+      '30 days email support',
+      '12 months updates',
+    ],
+  },
+  {
+    name: 'Agency',
+    price: '1,499',
+    description: 'Unlimited use across all client projects.',
+    stores: 'Unlimited stores',
+    highlight: false,
+    cta: 'Buy Agency',
+    url: 'https://commerceforge.lemonsqueezy.com/checkout/buy/67c9e5cc-5e13-4e5f-aa78-06136a319b68',
+    features: [
+      'Unlimited production stores',
+      'Full source code',
+      'All features included',
+      '30 days email support',
+      '12 months updates',
+    ],
+  },
+];
+
+const faqs = [
+  {
+    q: 'What version of Shopify Hydrogen is included?',
+    a: 'CommerceForge is built on Hydrogen 2026.1 with React Router v7. It follows the official Shopify Hydrogen architecture and is compatible with Shopify Oxygen deployment.',
+  },
+  {
+    q: 'Do I need Shopify Plus for B2B?',
+    a: 'Yes. The B2B features (company locations, buyer pricing, quantity rules, volume tiers) require a Shopify Plus plan. All B2C features work on any Shopify plan.',
+  },
+  {
+    q: 'Can I use it for client stores?',
+    a: 'Yes. The Pro license covers up to 5 stores and the Agency license covers unlimited stores, including stores built and managed for clients.',
+  },
+  {
+    q: 'What is included in the 12 months of updates?',
+    a: 'All improvements, bug fixes, and new features released within 12 months of your purchase date. Updates are delivered as a new version of the codebase.',
+  },
+  {
+    q: 'What ships in version 1.0?',
+    a: 'Version 1.0 includes B2C + B2B storefront flows, customer account pages, predictive and full search, bundles, subscriptions, quick view, recommendations, multilingual support, SEO setup, and a production release packaging flow.',
+  },
+  {
+    q: 'Can I customise the code?',
+    a: 'Yes. You receive the full source code and can modify anything. The only restriction is redistribution — you may not resell or publish the starter itself.',
+  },
+  {
+    q: 'What payment methods are accepted?',
+    a: 'All major credit cards and PayPal via Lemon Squeezy. VAT is handled automatically for EU purchases.',
+  },
+];
+---
+
+<Base>
+  <!-- ─── NAV ─────────────────────────────────────────────────────── -->
+  <header class="sticky top-0 z-50 border-b border-zinc-800 bg-zinc-950/80 backdrop-blur-md">
+    <nav class="mx-auto max-w-6xl px-6 py-4">
+      <div class="flex items-center justify-between gap-4">
+        <a href="/" class="flex items-center gap-2.5 font-semibold tracking-tight text-zinc-50">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="none" class="h-7 w-7">
+            <rect width="32" height="32" rx="8" fill="#6366f1"/>
+            <path d="M8 10h10a6 6 0 0 1 0 12H8V10z" fill="white"/>
+            <rect x="8" y="14" width="8" height="4" rx="1" fill="#6366f1"/>
+          </svg>
+          CommerceForge
+        </a>
+        <div class="hidden items-center gap-6 text-sm md:flex">
+          <a href="https://demo.commerceforge.dev" target="_blank" class="text-zinc-400 transition hover:text-zinc-50">Demo</a>
+          <a href="#features" class="text-zinc-400 transition hover:text-zinc-50">Features</a>
+          <a href="#pricing" class="text-zinc-400 transition hover:text-zinc-50">Pricing</a>
+          <a href="#faq" class="text-zinc-400 transition hover:text-zinc-50">FAQ</a>
+          <a
+            href="#pricing"
+            class="rounded-md bg-indigo-600 px-4 py-2 font-medium text-white transition hover:bg-indigo-500"
+          >
+            Get started
+          </a>
+        </div>
+        <button
+          type="button"
+          class="inline-flex h-11 w-11 items-center justify-center rounded-md border border-zinc-800 bg-zinc-900 text-zinc-200 transition hover:border-zinc-700 hover:text-zinc-50 md:hidden"
+          aria-expanded="false"
+          aria-controls="mobile-menu"
+          aria-haspopup="dialog"
+          aria-label="Open navigation menu"
+          data-menu-toggle
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true">
+            <path d="M4 7h16" />
+            <path d="M4 12h16" />
+            <path d="M4 17h16" />
+          </svg>
+        </button>
+      </div>
+      <dialog
+        id="mobile-menu"
+        class="m-0 h-full max-h-none w-full max-w-none overflow-hidden border-0 bg-transparent p-0 text-left text-zinc-50 backdrop:bg-zinc-950/70 backdrop:backdrop-blur-sm md:hidden"
+        aria-labelledby="mobile-menu-title"
+        data-mobile-menu
+      >
+        <div class="relative flex min-h-full items-start justify-end p-4 sm:p-6">
+          <button
+            type="button"
+            class="absolute inset-0 cursor-default"
+            aria-label="Close navigation menu"
+            data-menu-backdrop
+          ></button>
+          <div
+            class="relative z-10 w-full max-w-sm overflow-hidden rounded-3xl border border-zinc-800 bg-zinc-900/98 shadow-2xl opacity-0 translate-y-6 scale-[0.98] transition duration-200 ease-out motion-reduce:transform-none motion-reduce:transition-none"
+            data-menu-panel
+          >
+            <div class="flex items-center justify-between border-b border-zinc-800 px-5 py-4">
+              <div>
+                <p class="text-xs font-medium uppercase tracking-[0.24em] text-zinc-500">Navigation</p>
+                <h2 id="mobile-menu-title" class="mt-1 text-base font-semibold text-zinc-50">Browse CommerceForge</h2>
+              </div>
+              <button
+                type="button"
+                class="inline-flex h-10 w-10 items-center justify-center rounded-full border border-zinc-800 bg-zinc-950 text-zinc-300 transition hover:border-zinc-700 hover:text-zinc-50"
+                aria-label="Close navigation menu"
+                data-menu-close
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true">
+                  <path d="M6 6l12 12" />
+                  <path d="M18 6L6 18" />
+                </svg>
+              </button>
+            </div>
+            <div class="grid gap-1 p-3 text-sm">
+              <a href="https://demo.commerceforge.dev" target="_blank" class="rounded-2xl px-4 py-3 text-zinc-300 transition hover:bg-zinc-800 hover:text-zinc-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-400" data-menu-link>Demo</a>
+              <a href="#features" class="rounded-2xl px-4 py-3 text-zinc-300 transition hover:bg-zinc-800 hover:text-zinc-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-400" data-menu-link>Features</a>
+              <a href="#pricing" class="rounded-2xl px-4 py-3 text-zinc-300 transition hover:bg-zinc-800 hover:text-zinc-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-400" data-menu-link>Pricing</a>
+              <a href="#faq" class="rounded-2xl px-4 py-3 text-zinc-300 transition hover:bg-zinc-800 hover:text-zinc-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-400" data-menu-link>FAQ</a>
+              <a
+                href="#pricing"
+                class="mt-3 rounded-2xl bg-indigo-600 px-4 py-3 text-center font-medium text-white transition hover:bg-indigo-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-300"
+                data-menu-link
+              >
+                Get started
+              </a>
+            </div>
+          </div>
+        </div>
+      </dialog>
+    </nav>
+  </header>
+
+  <script is:inline>
+    const toggle = document.querySelector('[data-menu-toggle]');
+    const menu = document.querySelector('[data-mobile-menu]');
+
+    if (toggle instanceof HTMLButtonElement && menu instanceof HTMLDialogElement) {
+      const panel = menu.querySelector('[data-menu-panel]');
+      const closeButton = menu.querySelector('[data-menu-close]');
+      const backdrop = menu.querySelector('[data-menu-backdrop]');
+      const links = menu.querySelectorAll('[data-menu-link]');
+      const desktopMedia = window.matchMedia('(min-width: 768px)');
+      let isClosing = false;
+
+      const syncTriggerState = (isOpen) => {
+        toggle.setAttribute('aria-expanded', String(isOpen));
+        toggle.setAttribute(
+          'aria-label',
+          isOpen ? 'Close navigation menu' : 'Open navigation menu',
+        );
+      };
+
+      const setPanelState = (isOpen) => {
+        if (!(panel instanceof HTMLElement)) return;
+        panel.classList.toggle('opacity-0', !isOpen);
+        panel.classList.toggle('translate-y-6', !isOpen);
+        panel.classList.toggle('scale-[0.98]', !isOpen);
+        panel.classList.toggle('opacity-100', isOpen);
+        panel.classList.toggle('translate-y-0', isOpen);
+        panel.classList.toggle('scale-100', isOpen);
+      };
+
+      const openMenu = () => {
+        if (menu.open || desktopMedia.matches) return;
+        menu.showModal();
+        document.body.classList.add('overflow-hidden');
+        syncTriggerState(true);
+        setPanelState(false);
+        requestAnimationFrame(() => {
+          setPanelState(true);
+        });
+        if (closeButton instanceof HTMLButtonElement) {
+          closeButton.focus();
+        }
+      };
+
+      const finishClose = () => {
+        menu.close();
+      };
+
+      const closeMenu = () => {
+        if (!menu.open || isClosing) return;
+        isClosing = true;
+        setPanelState(false);
+        window.setTimeout(finishClose, 200);
+      };
+
+      toggle.addEventListener('click', () => {
+        if (menu.open) {
+          closeMenu();
+          return;
+        }
+        openMenu();
+      });
+
+      if (closeButton instanceof HTMLButtonElement) {
+        closeButton.addEventListener('click', closeMenu);
+      }
+
+      if (backdrop instanceof HTMLButtonElement) {
+        backdrop.addEventListener('click', closeMenu);
+      }
+
+      menu.addEventListener('cancel', (event) => {
+        event.preventDefault();
+        closeMenu();
+      });
+
+      menu.addEventListener('close', () => {
+        isClosing = false;
+        document.body.classList.remove('overflow-hidden');
+        toggle.setAttribute('aria-expanded', 'false');
+        toggle.setAttribute('aria-label', 'Open navigation menu');
+        setPanelState(false);
+        toggle.focus();
+      });
+
+      links.forEach((link) => {
+        link.addEventListener('click', closeMenu);
+      });
+
+      desktopMedia.addEventListener('change', (event) => {
+        if (event.matches && menu.open) {
+          closeMenu();
+        }
+      });
+    }
+  </script>
+
+  <main>
+    <!-- ─── HERO ──────────────────────────────────────────────────── -->
+    <section class="relative overflow-hidden px-6 pb-24 pt-24 text-center">
+      <!-- background grid -->
+      <div
+        class="pointer-events-none absolute inset-0 bg-[linear-gradient(to_right,#27272a_1px,transparent_1px),linear-gradient(to_bottom,#27272a_1px,transparent_1px)] bg-[size:48px_48px] opacity-30"
+      ></div>
+      <!-- radial fade -->
+      <div
+        class="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_80%_50%_at_50%_0%,rgba(99,102,241,0.15),transparent)]"
+      ></div>
+
+      <div class="relative mx-auto max-w-4xl">
+        <div
+          class="mb-6 inline-flex items-center gap-2 rounded-full border border-zinc-700 bg-zinc-900 px-4 py-1.5 text-sm text-zinc-400"
+        >
+          <span class="h-1.5 w-1.5 rounded-full bg-indigo-400"></span>
+          Shopify Hydrogen 2026.1 · React Router v7
+        </div>
+
+        <h1 class="mb-6 text-5xl font-bold leading-tight tracking-tight text-zinc-50 md:text-6xl">
+          The Hydrogen starter<br />
+          <span class="text-indigo-400">agencies actually ship with.</span>
+        </h1>
+
+        <p class="mx-auto mb-10 max-w-2xl text-lg leading-relaxed text-zinc-400">
+          B2C + B2B · customer account · predictive search · bundles + subscriptions · 27 locales + RTL.
+          One production-ready Hydrogen codebase, packaged for agencies that need to ship v1 fast.
+        </p>
+
+        <div class="flex flex-col items-center justify-center gap-4 sm:flex-row">
+          <a
+            href="#pricing"
+            class="whitespace-nowrap rounded-md bg-indigo-600 px-8 py-3 text-base font-semibold text-white shadow-lg transition hover:bg-indigo-500"
+          >
+            Get CommerceForge — from 199 €
+          </a>
+          <a
+            href="https://demo.commerceforge.dev"
+            target="_blank"
+            class="rounded-md border border-zinc-700 px-8 py-3 text-base font-medium text-zinc-300 transition hover:border-zinc-500 hover:text-zinc-50"
+          >
+            View demo →
+          </a>
+        </div>
+
+        <!-- file tree preview -->
+        <div
+          class="mx-auto mt-16 max-w-lg overflow-hidden rounded-xl border border-zinc-800 bg-zinc-900 text-left shadow-2xl"
+        >
+          <div class="flex items-center gap-2 border-b border-zinc-800 px-4 py-3">
+            <span class="h-3 w-3 rounded-full bg-red-500/70"></span>
+            <span class="h-3 w-3 rounded-full bg-yellow-500/70"></span>
+            <span class="h-3 w-3 rounded-full bg-green-500/70"></span>
+            <span class="ml-2 font-mono text-xs text-zinc-500">commerceforge/</span>
+          </div>
+          <pre class="px-6 py-5 font-mono text-sm leading-7 text-zinc-400"><code><span class="text-zinc-500">├──</span> app/
+<span class="text-zinc-500">│   ├──</span> <span class="text-indigo-400">components/</span>
+<span class="text-zinc-500">│   │   ├──</span> <span class="text-zinc-300">ui/</span>                    <span class="text-zinc-600"># 57 shadcn/ui components</span>
+<span class="text-zinc-500">│   │   ├──</span> ProductMain.tsx
+<span class="text-zinc-500">│   │   ├──</span> CartMain.tsx
+<span class="text-zinc-500">│   │   ├──</span> SearchFormPredictive.tsx
+<span class="text-zinc-500">│   │   ├──</span> RecentlyViewedProducts.tsx
+<span class="text-zinc-500">│   │   └──</span> sections/
+<span class="text-zinc-500">│   ├──</span> <span class="text-indigo-400">graphql/customer-account/</span>
+<span class="text-zinc-500">│   ├──</span> <span class="text-indigo-400">lib/</span>                   <span class="text-zinc-600"># search, seo, i18n, variants</span>
+<span class="text-zinc-500">│   ├──</span> <span class="text-indigo-400">locales/</span>               <span class="text-zinc-600"># 27 languages + RTL</span>
+<span class="text-zinc-500">│   ├──</span> <span class="text-indigo-400">routes/</span>                <span class="text-zinc-600"># account, catalog, search, api</span>
+<span class="text-zinc-500">│   └──</span> root.tsx
+<span class="text-zinc-500">├──</span> <span class="text-indigo-400">guides/</span>                    <span class="text-zinc-600"># install, deploy, env, b2b, i18n</span>
+<span class="text-zinc-500">├──</span> public/</code></pre>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── FEATURES ─────────────────────────────────────────────── -->
+    <section id="features" class="px-6 py-24">
+      <div class="mx-auto max-w-6xl">
+        <div class="mb-16 text-center">
+          <h2 class="mb-4 text-3xl font-bold tracking-tight text-zinc-50 md:text-4xl">
+            Everything you need to ship fast.
+          </h2>
+          <p class="mx-auto max-w-xl text-zinc-400">
+            The v1 release covers the real storefront surface: catalog, account, search, B2B, merchandising, and release packaging.
+          </p>
+        </div>
+
+        <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {
+            features.map((f) => (
+              <div class="rounded-xl border border-zinc-800 bg-zinc-900 p-6 transition hover:border-zinc-600">
+                <div class="mb-4 text-2xl text-indigo-400">{f.icon}</div>
+                <h3 class="mb-2 font-semibold text-zinc-50">{f.title}</h3>
+                <p class="text-sm leading-relaxed text-zinc-400">{f.description}</p>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── PERFORMANCE ──────────────────────────────────────────── -->
+    <section class="border-y border-zinc-800 bg-zinc-900 px-6 py-24">
+      <div class="mx-auto max-w-6xl">
+        <div class="mb-16 text-center">
+          <h2 class="mb-4 text-3xl font-bold tracking-tight text-zinc-50 md:text-4xl">
+            Strong Lighthouse results where it matters.
+          </h2>
+          <p class="mx-auto max-w-xl text-zinc-400">
+            Core transactional pages already perform well on the public demo. Product, collection,
+            and cart pages benchmark strongly before any project-specific optimisation pass.
+          </p>
+        </div>
+
+        <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+          {
+            metrics.map((m) => (
+              <div class="text-center">
+                <div class="mb-2 font-mono text-5xl font-bold text-indigo-400">
+                  {m.value}
+                  <span class="text-2xl text-indigo-300">{m.unit}</span>
+                </div>
+                <div class="text-sm text-zinc-400">{m.label}</div>
+              </div>
+            ))
+          }
+        </div>
+
+        <p class="mt-12 text-center text-xs text-zinc-600">
+          Measured with Lighthouse on the public demo on March 30, 2026. Scores vary by page,
+          content, device, and custom client integrations.
+        </p>
+      </div>
+    </section>
+
+    <!-- ─── COMPONENTS ───────────────────────────────────────────── -->
+    <section class="px-6 py-24">
+      <div class="mx-auto max-w-6xl">
+        <div class="mb-16 text-center">
+          <h2 class="mb-4 text-3xl font-bold tracking-tight text-zinc-50 md:text-4xl">
+            57 components, ready to use.
+          </h2>
+          <p class="mx-auto max-w-xl text-zinc-400">
+            Every shadcn/ui component plus custom ecommerce primitives. Accessible, keyboard-navigable,
+            dark mode included.
+          </p>
+        </div>
+
+        <div class="flex flex-wrap justify-center gap-2">
+          {
+            components.map((c) => (
+              <span class="rounded-md border border-zinc-800 bg-zinc-900 px-3 py-1.5 font-mono text-xs text-zinc-400">
+                {c}
+              </span>
+            ))
+          }
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── PRICING ──────────────────────────────────────────────── -->
+    <section id="pricing" class="border-t border-zinc-800 px-6 py-24">
+      <div class="mx-auto max-w-6xl">
+        <div class="mb-16 text-center">
+          <h2 class="mb-4 text-3xl font-bold tracking-tight text-zinc-50 md:text-4xl">
+            Simple, transparent pricing.
+          </h2>
+          <p class="mx-auto max-w-xl text-zinc-400">
+            One-time payment. Full source code. All future updates included for 12 months.
+          </p>
+        </div>
+
+        <div class="grid gap-8 lg:grid-cols-3">
+          {
+            tiers.map((tier) => (
+              <div
+                class={`relative flex flex-col rounded-xl border p-8 ${
+                  tier.highlight
+                    ? 'border-indigo-500 bg-indigo-950/40 shadow-[0_0_60px_-10px_rgba(99,102,241,0.3)]'
+                    : 'border-zinc-800 bg-zinc-900'
+                }`}
+              >
+                {tier.highlight && (
+                  <div class="absolute -top-3.5 left-1/2 -translate-x-1/2 rounded-full bg-indigo-600 px-4 py-1 text-xs font-semibold text-white">
+                    Most popular
+                  </div>
+                )}
+
+                <div class="mb-6">
+                  <h3 class="mb-1 text-lg font-semibold text-zinc-50">{tier.name}</h3>
+                  <p class="text-sm text-zinc-400">{tier.description}</p>
+                </div>
+
+                <div class="mb-6">
+                  <span class="text-4xl font-bold text-zinc-50">{tier.price} €</span>
+                  <span class="ml-2 text-sm text-zinc-500">one-time</span>
+                </div>
+
+                <ul class="mb-8 flex-1 space-y-3">
+                  {tier.features.map((f) => (
+                    <li class="flex items-center gap-3 text-sm text-zinc-300">
+                      <span class="text-indigo-400">✓</span>
+                      {f}
+                    </li>
+                  ))}
+                </ul>
+
+                <a
+                  href={tier.url}
+                  class={`block rounded-md py-3 text-center text-sm font-semibold transition ${
+                    tier.highlight
+                      ? 'bg-indigo-600 text-white hover:bg-indigo-500'
+                      : 'border border-zinc-700 text-zinc-300 hover:border-zinc-500 hover:text-zinc-50'
+                  }`}
+                >
+                  {tier.cta}
+                </a>
+              </div>
+            ))
+          }
+        </div>
+
+        <p class="mt-8 text-center text-sm text-zinc-500">
+          All prices exclude VAT. VAT is applied automatically for EU purchases. Refund requests
+          may be submitted within 7 days in accordance with our Terms.
+        </p>
+      </div>
+    </section>
+
+    <!-- ─── FAQ ──────────────────────────────────────────────────── -->
+    <section id="faq" class="border-t border-zinc-800 px-6 py-24">
+      <div class="mx-auto max-w-3xl">
+        <div class="mb-16 text-center">
+          <h2 class="mb-4 text-3xl font-bold tracking-tight text-zinc-50 md:text-4xl">
+            Frequently asked questions.
+          </h2>
+        </div>
+
+        <div class="divide-y divide-zinc-800">
+          {
+            faqs.map((faq) => (
+              <div class="py-6">
+                <h3 class="mb-3 font-medium text-zinc-50">{faq.q}</h3>
+                <p class="text-sm leading-relaxed text-zinc-400">{faq.a}</p>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── CTA BOTTOM ───────────────────────────────────────────── -->
+    <section class="border-t border-zinc-800 px-6 py-24 text-center">
+      <div class="mx-auto max-w-2xl">
+        <h2 class="mb-4 text-3xl font-bold tracking-tight text-zinc-50 md:text-4xl">
+          Ready to ship your next Shopify store?
+        </h2>
+        <p class="mb-10 text-zinc-400">
+          Skip weeks of boilerplate. Start with a production-ready codebase.
+        </p>
+        <a
+          href="#pricing"
+          class="inline-block whitespace-nowrap rounded-md bg-indigo-600 px-8 py-3 text-base font-semibold text-white shadow-lg transition hover:bg-indigo-500 sm:px-10 sm:py-4"
+        >
+          Get CommerceForge — from 199 €
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <!-- ─── FOOTER ───────────────────────────────────────────────── -->
+  <footer class="border-t border-zinc-800 px-6 py-10">
+    <div class="mx-auto flex max-w-6xl flex-col items-center justify-between gap-6 sm:flex-row">
+      <div>
+        <p class="font-semibold text-zinc-50">CommerceForge</p>
+        <p class="mt-1 text-sm text-zinc-500">© 2026 CommerceForge. All rights reserved.</p>
+      </div>
+      <div class="flex items-center gap-6 text-sm text-zinc-500">
+        <a href="/terms" class="transition hover:text-zinc-300">Terms</a>
+        <a href="/privacy" class="transition hover:text-zinc-300">Privacy</a>
+        <a href="mailto:hello@commerceforge.dev" class="transition hover:text-zinc-300"
+          >hello@commerceforge.dev</a
+        >
+      </div>
+    </div>
+  </footer>
+</Base>

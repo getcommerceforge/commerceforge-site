@@ -1,5 +1,11 @@
 ---
 import Base from '../layouts/Base.astro';
+import {
+  checkoutDeliveryCopy,
+  getCheckoutUrl,
+  paymentMethodsCopy,
+  pricingTaxCopy,
+} from '../lib/checkout';
 
 const features = [
   {
@@ -87,7 +93,7 @@ const tiers = [
     stores: '1 store',
     highlight: false,
     cta: 'Buy Starter',
-    url: 'https://commerceforge.lemonsqueezy.com/checkout/buy/7329762b-2769-4dcf-8a78-d01e251b3471',
+    url: getCheckoutUrl('Starter'),
     features: [
       '1 production store',
       'Full source code',
@@ -103,7 +109,7 @@ const tiers = [
     stores: 'Up to 5 stores',
     highlight: true,
     cta: 'Buy Pro',
-    url: 'https://commerceforge.lemonsqueezy.com/checkout/buy/2406800a-091e-45e8-b51f-658f14d87c41',
+    url: getCheckoutUrl('Pro'),
     features: [
       'Up to 5 production stores',
       'Full source code',
@@ -119,7 +125,7 @@ const tiers = [
     stores: 'Unlimited stores',
     highlight: false,
     cta: 'Buy Agency',
-    url: 'https://commerceforge.lemonsqueezy.com/checkout/buy/67c9e5cc-5e13-4e5f-aa78-06136a319b68',
+    url: getCheckoutUrl('Agency'),
     features: [
       'Unlimited production stores',
       'Full source code',
@@ -157,7 +163,7 @@ const faqs = [
   },
   {
     q: 'What payment methods are accepted?',
-    a: 'All major credit cards and PayPal via Lemon Squeezy. VAT is handled automatically for EU purchases.',
+    a: paymentMethodsCopy,
   },
 ];
 ---
@@ -576,8 +582,10 @@ const faqs = [
         </div>
 
         <p class="mt-8 text-center text-sm text-zinc-500">
-          All prices exclude VAT. VAT is applied automatically for EU purchases. Refund requests
-          may be submitted within 7 days in accordance with our Terms.
+          {pricingTaxCopy}
+        </p>
+        <p class="mt-3 text-center text-sm text-zinc-500">
+          {checkoutDeliveryCopy}
         </p>
       </div>
     </section>

@@ -6,63 +6,84 @@ import {
   paymentMethodsCopy,
   pricingTaxCopy,
 } from '../lib/checkout';
+import shoppingBag from 'lucide-static/icons/shopping-bag.svg?raw';
+import layoutGrid from 'lucide-static/icons/layout-grid.svg?raw';
+import languages from 'lucide-static/icons/languages.svg?raw';
+import repeat from 'lucide-static/icons/repeat.svg?raw';
+import shoppingCart from 'lucide-static/icons/shopping-cart.svg?raw';
+import userRound from 'lucide-static/icons/user-round.svg?raw';
+import search from 'lucide-static/icons/search.svg?raw';
+import eye from 'lucide-static/icons/eye.svg?raw';
+import fileText from 'lucide-static/icons/file-text.svg?raw';
 
 const features = [
   {
-    icon: '⬡',
+    icon: 'commerce',
     title: 'B2C + B2B in one codebase',
     description:
       'Consumer and business storefronts share the same routes and components. Company buyers get location-aware pricing, quantity rules, price breaks, and quote flows automatically.',
   },
   {
-    icon: '◻',
+    icon: 'components',
     title: '57 shadcn/ui components',
     description:
       'A large Radix-powered UI foundation styled with Tailwind CSS v4, plus custom ecommerce primitives for product cards, drawers, fields, ratings, lightbox, and directional UI.',
   },
   {
-    icon: '◈',
+    icon: 'globe',
     title: '27 locales + RTL',
     description:
       'Full internationalisation with type-safe translation files, market-aware routing, localized account/catalog/search flows, and RTL-ready layout primitives for Arabic storefronts.',
   },
   {
-    icon: '↻',
+    icon: 'flows',
     title: 'Subscriptions, bundles, combined listings',
     description:
       'Native Shopify selling plans, bundle products, bundled-variant selectors, combined listings support, and shared PDP logic already wired into the storefront.',
   },
   {
-    icon: '◎',
+    icon: 'cart',
     title: 'Cart drawer + checkout UX',
     description:
       'Off-canvas cart drawer with discount codes, gift cards, shipping progress, trust badges, notes, PO fields, delivery date fields, and automatic cross-sell recommendations.',
   },
   {
-    icon: '◉',
+    icon: 'account',
     title: 'Customer account area',
     description:
       'Login, logout, addresses, profile editing, order history, order detail, subscriptions, and order search are already built on Shopify Customer Account API.',
   },
   {
-    icon: '⌕',
+    icon: 'search',
     title: 'Predictive search + full search',
     description:
       'Live predictive search with shadcn Command palette, full-page search across products/pages/articles, and analytics-ready search events and query handling.',
   },
   {
-    icon: '▣',
+    icon: 'quickview',
     title: 'Quick view + product recommendations',
     description:
       'Quick view shares real PDP interactions for variants and pricing, while product page, cart, and recommendation surfaces are already connected for merchandising.',
   },
   {
-    icon: '◌',
+    icon: 'seo',
     title: 'SEO, analytics, release-ready',
     description:
       'Storefront API SEO fields, canonical URLs, structured data, paginated sitemaps, robots.txt, Shopify analytics events, and a release packaging flow ready for delivery.',
   },
 ];
+
+const iconMarkup: Record<string, string> = {
+  commerce: shoppingBag,
+  components: layoutGrid,
+  globe: languages,
+  flows: repeat,
+  cart: shoppingCart,
+  account: userRound,
+  search,
+  quickview: eye,
+  seo: fileText,
+};
 
 const metrics = [
   { value: '97', label: 'Cart desktop score', unit: '' },
@@ -450,7 +471,9 @@ const faqs = [
           {
             features.map((f) => (
               <div class="rounded-xl border border-zinc-800 bg-zinc-900 p-6 transition hover:border-zinc-600">
-                <div class="mb-4 text-2xl text-indigo-400">{f.icon}</div>
+                <div class="mb-4 inline-flex h-11 w-11 items-center justify-center rounded-md border border-indigo-500/20 bg-indigo-500/10 text-indigo-300">
+                  <div class="[&>svg]:block [&>svg]:h-5 [&>svg]:w-5" set:html={iconMarkup[f.icon]} />
+                </div>
                 <h3 class="mb-2 font-semibold text-zinc-50">{f.title}</h3>
                 <p class="text-sm leading-relaxed text-zinc-400">{f.description}</p>
               </div>

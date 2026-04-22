@@ -5,9 +5,9 @@ const DEFAULT_PROVIDER: CheckoutProvider = 'lemon_squeezy';
 
 const DEFAULT_URLS: Record<CheckoutProvider, Record<TierName, string>> = {
   lemon_squeezy: {
-    Starter: 'https://commerceforge.lemonsqueezy.com/checkout/buy/7329762b-2769-4dcf-8a78-d01e251b3471',
-    Pro: 'https://commerceforge.lemonsqueezy.com/checkout/buy/2406800a-091e-45e8-b51f-658f14d87c41',
-    Agency: 'https://commerceforge.lemonsqueezy.com/checkout/buy/67c9e5cc-5e13-4e5f-aa78-06136a319b68',
+    Starter: 'https://commerceforge.lemonsqueezy.com/checkout/buy/7e933d75-d50f-4bf8-8930-517d23a3d4c0',
+    Pro: 'https://commerceforge.lemonsqueezy.com/checkout/buy/50c14f58-9873-40e7-b443-f01f6de4abe6',
+    Agency: 'https://commerceforge.lemonsqueezy.com/checkout/buy/43f8aad2-731f-4b72-bf67-a46d8c54e524',
   },
   stripe: {
     Starter: 'https://buy.stripe.com/5kQdR85fi2TH8NUeXK7IY00',
